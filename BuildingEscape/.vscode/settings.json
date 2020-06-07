@@ -1,0 +1,7 @@
+{
+	"files.exclude": {
+		"/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/.vscode": true,
+		"/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Content": true,
+		"/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Intermediate": true
+	}
+}

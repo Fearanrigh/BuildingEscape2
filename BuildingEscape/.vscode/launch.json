@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "BuildingEscape (Debug)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscape Mac Debug Build",
+			"program": "/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Binaries/Mac/UE4-Mac-Debug.app/Contents/MacOS/UE4-Mac-Debug",
+			"args": [
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "BuildingEscape (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscape Mac DebugGame Build",
+			"program": "/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Binaries/Mac/UE4-Mac-DebugGame.app/Contents/MacOS/UE4-Mac-DebugGame",
+			"args": [
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "BuildingEscape (Development)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscape Mac Development Build",
+			"program": "/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Binaries/Mac/UE4.app/Contents/MacOS/UE4",
+			"args": [
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "BuildingEscape (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscape Mac Shipping Build",
+			"program": "/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Binaries/Mac/UE4-Mac-Shipping.app/Contents/MacOS/UE4-Mac-Shipping",
+			"args": [
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "BuildingEscape (Test)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscape Mac Test Build",
+			"program": "/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Binaries/Mac/UE4-Mac-Test.app/Contents/MacOS/UE4-Mac-Test",
+			"args": [
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "BuildingEscapeEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscapeEditor Mac Debug Build",
+			"program": "/Users/Shared/EpicGames/UE_4.24/Engine/Binaries/Mac/UE4Editor-Mac-Debug.app/Contents/MacOS/UE4Editor-Mac-Debug",
+			"args": [
+				"/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/BuildingEscape.uproject"
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "BuildingEscapeEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscapeEditor Mac DebugGame Build",
+			"program": "/Users/Shared/EpicGames/UE_4.24/Engine/Binaries/Mac/UE4Editor-Mac-DebugGame.app/Contents/MacOS/UE4Editor-Mac-DebugGame",
+			"args": [
+				"/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/BuildingEscape.uproject"
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "BuildingEscapeEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "BuildingEscapeEditor Mac Development Build",
+			"program": "/Users/Shared/EpicGames/UE_4.24/Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor",
+			"args": [
+				"/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/BuildingEscape.uproject"
+			],
+			"cwd": "/Users/Shared/EpicGames/UE_4.24",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/Users/Shared/EpicGames/UE_4.24/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/BuildingEscape.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/Users/Shared/EpicGames/UE_4.24"
+		}
+	]
+}
