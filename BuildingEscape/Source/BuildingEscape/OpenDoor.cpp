@@ -19,16 +19,6 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
-
-	AActor* Owner = GetOwner();
-	FRotator ObjectRotation = Owner->GetActorRotation();
-
-	UE_LOG(LogTemp, Warning, TEXT("Rotation is %.3f"), ObjectRotation.Yaw)
-
-	ObjectRotation.Yaw += 60.0f;
-	Owner->SetActorRotation(ObjectRotation);
-
-	
 }
 
 
@@ -37,6 +27,19 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Poll the trigger volume every frame
+	// If the actor that opens is in the volume, then we open the door.
+	if(PressurePlate->IsOverlappingActor(ActorThatOpens)) {
+		OpenDoor();
+	}
 }
 
+void UOpenDoor::OpenDoor() {
+	AActor* Owner = GetOwner();
+	FRotator ObjectRotation = Owner->GetActorRotation();
+
+	UE_LOG(LogTemp, Warning, TEXT("Rotation is %.3f"), ObjectRotation.Yaw)
+
+	ObjectRotation.Yaw += 60.0f;
+	Owner->SetActorRotation(ObjectRotation);
+}
