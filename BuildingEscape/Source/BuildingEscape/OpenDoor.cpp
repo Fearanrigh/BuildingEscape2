@@ -2,6 +2,7 @@
 
 
 #include "OpenDoor.h"
+#include "GameFramework/Actor.h"
 
 // Sets default values for this component's properties
 UOpenDoor::UOpenDoor()
@@ -19,7 +20,14 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	AActor* Owner = GetOwner();
+	FRotator ObjectRotation = Owner->GetActorRotation();
+
+	UE_LOG(LogTemp, Warning, TEXT("Rotation is %.3f"), ObjectRotation.Yaw)
+
+	ObjectRotation.Yaw += 60.0f;
+	Owner->SetActorRotation(ObjectRotation);
+
 	
 }
 
