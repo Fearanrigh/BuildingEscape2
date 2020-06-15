@@ -1,7 +1,10 @@
 // Copyright Sean Barton 2020
 
-
+#include "GameFramework/PlayerController.h"
+#include "Engine/World.h"
 #include "Grabber.h"
+
+#define OUT
 
 // Sets default values for this component's properties
 UGrabber::UGrabber()
@@ -19,7 +22,7 @@ void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	UE_LOG(LogTemp, Warning, TEXT("Grabber reporting for duty!"));
 	
 }
 
@@ -29,6 +32,16 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Get the player viewpoint this tick.
+	FVector viewLocation;
+	FRotator viewRotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+		OUT viewLocation, 
+		OUT viewRotation);
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *viewRotation.ToString());
+
+	// Ray-cast out to reach distance.
+
+	// See what we hit.
 }
 
