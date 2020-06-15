@@ -221,7 +221,8 @@
                 "/Users/Shared/EpicGames/UE_4.24/Engine/Source/ThirdParty/PhysX3/APEX_1.4/framework/include/autogen",
                 "/Users/Shared/EpicGames/UE_4.24/Engine/Source/ThirdParty/PhysX3/APEX_1.4/shared/general/RenderDebug/public",
                 "/Users/Shared/EpicGames/UE_4.24/Engine/Source/ThirdParty/PhysX3/APEX_1.4/shared/general/PairFilter/include",
-                "/Users/Shared/EpicGames/UE_4.24/Engine/Source/ThirdParty/PhysX3/APEX_1.4/shared/internal/include"
+                "/Users/Shared/EpicGames/UE_4.24/Engine/Source/ThirdParty/PhysX3/APEX_1.4/shared/internal/include",
+                "/Volumes/Storage/Unreal/03_BuildingEscape/BuildingEscape/Intermediate/Build/Mac/UE4Editor/Inc/BuildingEscape/"
             ],
             "intelliSenseMode": "clang-x64",
             "macFrameworkPath": [
