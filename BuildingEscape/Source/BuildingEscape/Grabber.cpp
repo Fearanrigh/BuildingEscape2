@@ -1,5 +1,6 @@
 // Copyright Sean Barton 2020
 
+#include "DrawDebugHelpers.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
 #include "Grabber.h"
@@ -38,7 +39,21 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
 		OUT viewLocation, 
 		OUT viewRotation);
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *viewRotation.ToString());
+	// UE_LOG(LogTemp, Warning, TEXT("%s"), *viewRotation.ToString());
+	
+	// Draw a red trace in the world to visualize.
+	FVector LineTraceEnd = viewLocation + viewRotation.Vector() * Reach;
+
+	DrawDebugLine(
+		GetWorld(),
+		viewLocation,
+		LineTraceEnd,
+		FColor(255, 0, 0),
+		false,
+		0.0f,
+		0,
+		10.0f
+	);
 
 	// Ray-cast out to reach distance.
 
