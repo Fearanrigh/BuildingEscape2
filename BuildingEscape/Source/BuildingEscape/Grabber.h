@@ -38,4 +38,16 @@ private:
 
 	// Called when grab released
 	void Release();
+
+	// Find (assumed) attached physics handle
+	void FindPhysicsHandleComponent();
+
+	// Setup (assumed) attached input component
+	void SetupInputComponent();
+
+	// Draw a debug line helper function showing the actor reach
+	void DrawDebugLineHelper(FVector, FVector);
+
+	// Return hit for first physics body in reach
+	const FHitResult GetFirstPhysicsBodyInReach();
 };
