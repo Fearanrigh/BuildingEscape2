@@ -29,6 +29,12 @@ public:
 private:
 	float Reach = 100.0f;
 
+	FVector PlayerViewPointLocation;
+
+	FRotator PlayerViewPointRotation;
+
+	FVector LineTraceEnd;
+
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 
 	UInputComponent* InputComponent = nullptr;
@@ -46,8 +52,14 @@ private:
 	void SetupInputComponent();
 
 	// Draw a debug line helper function showing the actor reach
-	void DrawDebugLineHelper(FVector, FVector);
+	void DrawDebugLineHelper();
 
 	// Return hit for first physics body in reach
 	const FHitResult GetFirstPhysicsBodyInReach();
+
+	// Sets the actor position/rotation and line trace end for the actor
+	void SetLineTraceEnd();
+
+	// Sets the actor position and rotation
+	void SetActorLocationAndRotation();
 };
