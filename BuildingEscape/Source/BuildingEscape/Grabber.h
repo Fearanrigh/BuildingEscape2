@@ -29,12 +29,6 @@ public:
 private:
 	float Reach = 100.0f;
 
-	FVector PlayerViewPointLocation;
-
-	FRotator PlayerViewPointRotation;
-
-	FVector LineTraceEnd;
-
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 
 	UInputComponent* InputComponent = nullptr;
@@ -58,8 +52,8 @@ private:
 	const FHitResult GetFirstPhysicsBodyInReach();
 
 	// Sets the actor position/rotation and line trace end for the actor
-	void SetLineTraceEnd();
+	FVector GetLineTraceEnd();
 
 	// Sets the actor position and rotation
-	void SetActorLocationAndRotation();
+	FVector GetActorLocation();
 };

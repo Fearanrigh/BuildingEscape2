@@ -71,36 +71,43 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	SetLineTraceEnd();
-
 	// if the physics handle is attached
 	if(PhysicsHandle->GrabbedComponent) {
 		// move the object that we're holding
-		PhysicsHandle->SetTargetLocation(LineTraceEnd);
+		PhysicsHandle->SetTargetLocation(GetLineTraceEnd());
 	}
 }
 
-void UGrabber::SetActorLocationAndRotation() {
-		GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+FVector UGrabber::GetActorLocation() {
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
 		OUT PlayerViewPointLocation, 
 		OUT PlayerViewPointRotation
 	);
+
+	return PlayerViewPointLocation;
 }
 
 /// Updates the player view location/rotation and line trace end.
-void UGrabber::SetLineTraceEnd() {
+FVector UGrabber::GetLineTraceEnd() {
 	/// Gets the player position and rotation and updates the variables.
-	SetActorLocationAndRotation();
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+		OUT PlayerViewPointLocation, 
+		OUT PlayerViewPointRotation
+	);
 	
 	/// Create the line trace end point
-	LineTraceEnd = PlayerViewPointLocation + PlayerViewPointRotation.Vector() * Reach;
+	return PlayerViewPointLocation + PlayerViewPointRotation.Vector() * Reach;
 }
 
 void UGrabber::DrawDebugLineHelper() {
 	DrawDebugLine(
 		GetWorld(),
-		PlayerViewPointLocation,
-		LineTraceEnd,
+		GetActorLocation(),
+		GetLineTraceEnd(),
 		FColor(255, 0, 0),
 		false,
 		0.0f,
@@ -110,8 +117,6 @@ void UGrabber::DrawDebugLineHelper() {
 }
 
 const FHitResult UGrabber::GetFirstPhysicsBodyInReach() {
-
-	SetLineTraceEnd();
 
 	/// Draw a red trace in the world to visualize.
 	// DrawDebugLineHelper();
@@ -127,8 +132,8 @@ const FHitResult UGrabber::GetFirstPhysicsBodyInReach() {
 	FHitResult HitResult;
 	GetWorld()->LineTraceSingleByObjectType(
 		OUT HitResult,
-		PlayerViewPointLocation,
-		LineTraceEnd,
+		GetActorLocation(),
+		GetLineTraceEnd(),
 		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),
 		TraceParameters
 	);
