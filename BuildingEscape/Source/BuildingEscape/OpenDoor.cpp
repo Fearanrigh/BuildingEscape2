@@ -52,7 +52,8 @@ void UOpenDoor::OpenDoor() {
 	if(!Owner) { return; }
 	FRotator ObjectRotation = Owner->GetActorRotation();
 	ObjectRotation.Yaw = OpenAngle;
-	Owner->SetActorRotation(ObjectRotation);
+	// Owner->SetActorRotation(ObjectRotation);
+	OnOpenRequest.Broadcast();
 }
 
 void UOpenDoor::CloseDoor() {
