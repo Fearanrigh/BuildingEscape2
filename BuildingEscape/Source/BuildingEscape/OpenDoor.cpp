@@ -30,26 +30,18 @@ void UOpenDoor::BeginPlay()
 	}
 }
 
-
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// Poll the trigger volume every frame
-	if(GetTotalMassOfActorsOnPlate() > TriggerMass) { // TODO make into a parameter
-		OnOpenRequest.Broadcast();
+	if(GetTotalMassOfActorsOnPlate() > TriggerMass) { 
+		OnOpen.Broadcast();
 	}
 	else {
-		CloseDoor();
+		OnClose.Broadcast();
 	}
-}
-
-void UOpenDoor::CloseDoor() {
-	if(!Owner) { return; }
-	FRotator ObjectRotation = Owner->GetActorRotation();
-	ObjectRotation.Yaw = 0.0f;
-	Owner->SetActorRotation(ObjectRotation);
 }
 
 float UOpenDoor::GetTotalMassOfActorsOnPlate() {
